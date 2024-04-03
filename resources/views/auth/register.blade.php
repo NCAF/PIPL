@@ -52,33 +52,33 @@
                     <div class="col-md-7 position-relative">
                         <div class="card-body">
                             <p class="txt-close">Sudah punya akun?</p>
-                            <button class="btn btn-outline-primary btn-close"
-                                onclick="window.location.href='{{ route('login') }}';">Login</button>
-                            <p class="login-card-description">Daftarkan Sekarang</p>
+                            <p><button class="btn btn-outline-primary btn-close"
+                                onclick="window.location.href='{{ route('login') }}';">masuk</button>
+                            <p class="login-card-description"><b>Daftarkan Sekarang</b></p>
                             <p><small class="text-muted">Daftarkan akunmu dengan cepat dan mudah.</small></p>
                             <form action="{{ route('register.post') }}" method="POST" id="registerForm">
                                 @csrf
                                 <div class="form-group">
                                     <label for="name" class="sr-only">Name</label>
                                     <input type="text" name="name" id="name" class="form-control"
-                                        placeholder="Your Name" required>
+                                        placeholder="Nama" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="sr-only">Email</label>
                                     <input type="email" name="email" id="email" class="form-control"
-                                        placeholder="Email address" required>
+                                        placeholder="Email" required>
                                 </div>
                                 <div class="form-group mb-4">
-                                    <label for="password" class="sr-only">Password</label>
+                                    <label for="password" class="sr-only">Kata Sandi</label>
                                     <input type="password" name="password" id="password" class="form-control"
-                                        placeholder="***********" required>
+                                        placeholder="Kata Sandi" required>
                                 </div>
                                 <div class="form-group mb-4">
-                                    <label for="password_confirmation" class="sr-only">Confirm Password</label>
+                                    <label for="password_confirmation" class="sr-only">Konfirmasi Kata Sandi</label>
                                     <input type="password" name="password_confirmation" id="password_confirmation"
-                                        class="form-control" placeholder="Confirm Password" required>
+                                        class="form-control" placeholder="Konfirmasi Kata Sandi" required>
                                 </div>
-                                <button type="submit" class="btn btn-block login-btn mb-4">Register</button>
+                                <button type="submit" class="btn btn-block login-btn mb-4">Daftar</button>
                             </form>
                             <br>
                             <p class="login-card-footer-text">Dengan mendaftar, saya menyetujui
@@ -122,5 +122,4 @@
     <script src="js/bootstrap.min.js"></script>
 
 </body>
-
 </html>

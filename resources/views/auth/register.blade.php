@@ -47,7 +47,7 @@
             <div class="card login-card">
                 <div class="row no-gutters">
                     <div class="col-md-5">
-                        <img src="images/img_login.png" alt="login" class="login-card-img">
+                        <img src="{{ asset('images/2.png') }}" alt="login" class="login-card-img">
                     </div>
                     <div class="col-md-7 position-relative">
                         <div class="card-body">

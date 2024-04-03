@@ -22,10 +22,10 @@
                     </div>
                     <div class="col-md-7">
                         <div class="card-body">
-                            <p class="login-card-description">Selamar Datang Kembali</p>
+                            <p class="login-card-description">Selamat Datang Kembali</p>
                             <p class="login-card-description">Daftar Sekarang</p>
                             <p><small class="text-muted">Daftarkan akunmu dengan cepat dan mudah.</small></p>
-                            <form action="{{ route('login') }}" method="POST" id="loginForm">
+                            <form action="{{ route('login.post') }}" method="POST" id="loginForm">
                                 @csrf
                                 <div class="form-group">
                                     <label for="email" class="sr-only">Email</label>
@@ -49,7 +49,7 @@
                                 </div>
                             </div>
                             <br>
-                            <p class="login-card-footer-text">Don't have an account? <a href="#!"
+                            <p class="login-card-footer-text">Don't have an account? <a href="{{ route('register') }}"
                                     class="text-reset">Register here</a>
                             </p>
 
@@ -68,7 +68,16 @@
                 text: '{{ $errors->first() }}'
             });
         </script>
+    @elseif(session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: '{{ session('success') }}'
+            });
+        </script>
     @endif
+
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

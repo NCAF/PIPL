@@ -108,6 +108,12 @@ body {
   margin-bottom: 60px;
 }
 
+.login-card-footer-text a {
+  color: blue !important;
+  /* Mengubah warna teks tautan menjadi biru dengan prioritas yang lebih tinggi */
+}
+
+
 @media (max-width: 767px) {
   .login-card-footer-text {
     margin-bottom: 24px;

@@ -35,7 +35,7 @@
                                 <div class="form-group mb-4">
                                     <label for="password" class="sr-only">Password</label>
                                     <input type="password" name="password" id="password" class="form-control"
-                                        placeholder="***********">
+                                        placeholder="Kata Sandi">
                                 </div>
                                 <button type="submit" class="btn btn-block login-btn mb-4">Login</button>
                             </form>

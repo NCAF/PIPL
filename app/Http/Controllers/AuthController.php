@@ -24,7 +24,7 @@ class AuthController extends Controller
 
             if (Auth::attempt($credentials)) {
                 // Login berhasil
-                return redirect('/welcome');
+                return redirect('/destinasi');
             } else {
                 // Login gagal
                 return back()->withErrors([
@@ -61,5 +61,15 @@ class AuthController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
+    }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

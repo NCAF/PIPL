@@ -60,8 +60,8 @@
                                                 <td class="align-middle text-center">
                                                     <span>
                                                         <button data-toggle="modal"
-                                                            data-target="#editUserModal{{ $dst->id }}" type="button"
-                                                            class="btn btn-info">Edit</button>
+                                                            data-target="#editDestinasiModal{{ $dst->id }}"
+                                                            type="button" class="btn btn-info">Edit</button>
                                                         <form id="deleteForm-{{ $dst->id }}" method="post"
                                                             action="{{ route('destinasi.destroy', $dst->id) }}"
                                                             style="display:inline">
@@ -188,49 +188,85 @@
         </div>
 
         <!-- Modal Edit Pengguna -->
-        {{-- @foreach ($destinations as $dst)
-            <div class="modal fade" id="editUserModal{{ $dst->id }}" tabindex="-1" aria-labelledby="createModalLabel"
-                aria-hidden="true">
+        @foreach ($destinations as $dst)
+            <div class="modal fade" id="editDestinasiModal{{ $dst->id }}" tabindex="-1"
+                aria-labelledby="editDestinasiModalLabel{{ $dst->id }}" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="createModalLabel">Tambah Lomba</h5>
+                            <h5 class="modal-title" id="editDestinasiModalLabel{{ $dst->id }}">Edit Destinasi</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="{{ route('lomba.update', ['id' => $dst->id]) }}" method="POST"
+                        <form action="{{ route('destinasi.update', ['id' => $dst->id]) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
                             <div class="modal-body">
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Lomba</label>
-                                    <input type="text" class="form-control" id="nama" name="nama"
-                                        value="{{ $dst->nama }}" required>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="destinasi_awal" class="form-label">Destinasi Awal</label>
+                                            <input type="text" class="form-control" id="destinasi_awal"
+                                                name="destinasi_awal" value="{{ $dst->destinasi_awal }}" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="destinasi_akhir" class="form-label">Destinasi Akhir</label>
+                                            <input type="text" class="form-control" id="destinasi_akhir"
+                                                name="destinasi_akhir" value="{{ $dst->destinasi_akhir }}" required>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="tanggal_mulai" class="form-label">Tanggal Mulai</label>
-                                    <input type="date" class="form-control" id="tanggal_mulai" name="tanggal_mulai"
-                                        value="{{ $dst->tanggal_mulai }}" required>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="jenis_kendaraan" class="form-label">Jenis Kendaraan</label>
+                                            <input type="text" class="form-control" id="jenis_kendaraan"
+                                                name="jenis_kendaraan" value="{{ $dst->jenis_kendaraan }}" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="no_plat" class="form-label">Nomor Plat</label>
+                                            <input type="text" class="form-control" id="no_plat" name="no_plat"
+                                                value="{{ $dst->no_plat }}" required>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="tanggal_selesai" class="form-label">Tanggal Selesai</label>
-                                    <input type="date" class="form-control" id="tanggal_selesai"
-                                        name="tanggal_selesai" value="{{ $dst->tanggal_selesai }}" required>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="hari_berangkat" class="form-label">Hari Berangkat</label>
+                                            <input type="date" class="form-control" id="hari_berangkat"
+                                                name="hari_berangkat" value="{{ $dst->hari_berangkat }}" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="jumlah_kursi" class="form-label">Jumlah Kursi</label>
+                                            <input type="number" class="form-control" id="jumlah_kursi"
+                                                name="jumlah_kursi" value="{{ $dst->jumlah_kursi }}" required>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="foto" class="form-label">Foto Lomba</label>
-                                    <input type="file" class="form-control" id="foto" name="foto"
-                                        accept="image/*">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="harga" class="form-label">Harga</label>
-                                    <input type="text" class="form-control" id="harga" name="harga"
-                                        value="{{ $dst->harga }}" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="deskripsi" class="form-label">Deskripsi</label>
-                                    <textarea class="form-control" id="deskripsi" name="deskripsi" required>{{ $dst->deskripsi }}</textarea>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="jumlah_bagasi" class="form-label">Jumlah Bagasi</label>
+                                            <input type="number" class="form-control" id="jumlah_bagasi"
+                                                name="jumlah_bagasi" value="{{ $dst->jumlah_bagasi }}" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="foto" class="form-label">Foto</label>
+                                            <input type="file" class="form-control" id="foto" name="foto"
+                                                accept="image/*">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -241,27 +277,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Modal for Detail -->
-            <div class="modal fade" id="detailModal{{ $dst->id }}" tabindex="-1" role="dialog"
-                aria-labelledby="detailModalLabel{{ $dst->id }}" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="detailModalLabel{{ $dst->id }}">Detail Lomba</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="text-center">
-                                <img src="{{ asset($dst->foto) }}" alt="Lomba Foto" class="img-fluid">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endforeach --}}
+        @endforeach
 
         <script>
             $(document).ready(function() {

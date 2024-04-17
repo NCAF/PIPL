@@ -29,4 +29,5 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 //destinasi route
 Route::get('/destinasi', [DestinasiController::class, 'index'])->name('destinasi.index');
 Route::post('/destinasi/create', [DestinasiController::class, 'store'])->name('destinasi.store');
+Route::put('/destinasi/{id}', [DestinasiController::class, 'update'])->name('destinasi.update');
 Route::delete('/destinasi/{id}', [DestinasiController::class, 'destroy'])->name('destinasi.destroy');

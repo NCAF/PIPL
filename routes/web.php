@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DestinasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,11 +26,7 @@ Route::get('/register', [AuthController::class, 'registerForm'])->name('register
 Route::post('/register', [AuthController::class, 'register'])->name('register.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// welcome route
-Route::get('/welcome', function () {
-    return view('welcome');
-});
-
-Route::get('/destinasi', function () {
-    return view('page.destinasi');
-});
+//destinasi route
+Route::get('/destinasi', [DestinasiController::class, 'index'])->name('destinasi.index');
+Route::post('/destinasi/create', [DestinasiController::class, 'store'])->name('destinasi.store');
+Route::delete('/destinasi/{id}', [DestinasiController::class, 'destroy'])->name('destinasi.destroy');

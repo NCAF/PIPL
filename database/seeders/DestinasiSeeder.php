@@ -23,6 +23,7 @@ class DestinasiSeeder extends Seeder
                 'jumlah_kursi' => 50,
                 'jumlah_bagasi' => 20,
                 'foto' => 'jakarta_bandung_bus.jpg',
+                'deskripsi' => 'Perjalanan dari Jakarta ke Bandung menggunakan bus ini memakan waktu sekitar 3 jam.',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -35,6 +36,7 @@ class DestinasiSeeder extends Seeder
                 'jumlah_kursi' => 100,
                 'jumlah_bagasi' => 10,
                 'foto' => 'surabaya_malang_train.jpg',
+                'deskripsi' => 'Perjalanan dari Surabaya ke Malang menggunakan kereta api ini memakan waktu sekitar 2 jam.',
                 'created_at' => now(),
                 'updated_at' => now()
             ],

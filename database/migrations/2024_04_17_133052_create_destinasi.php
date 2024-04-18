@@ -20,6 +20,7 @@ return new class extends Migration {
             $table->integer('jumlah_kursi');
             $table->integer('jumlah_bagasi');
             $table->text('foto');
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }

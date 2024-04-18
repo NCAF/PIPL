@@ -18,6 +18,7 @@ class Destinasi extends Model
         'jumlah_kursi',
         'jumlah_bagasi',
         'foto',
+        'deskripsi'
     ];
 
     protected $dates = ['hari_berangkat'];

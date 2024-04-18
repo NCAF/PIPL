@@ -37,7 +37,7 @@
                                             <th class="text-center">Hari Berangkat</th>
                                             <th class="text-center">Jumlah Kursi</th>
                                             <th class="text-center">Jumlah Bagasi</th>
-                                            <th class="text-center">Foto</th>
+                                            <th class="text-center">Detail</th>
                                             <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
@@ -54,8 +54,33 @@
                                                 <td class="text-center">{{ $dst->jumlah_kursi }}</td>
                                                 <td class="text-center">{{ $dst->jumlah_bagasi }}</td>
                                                 <td class="text-center">
-                                                    <img src="{{ asset('foto_destinasi/' . $dst->foto) }}" alt="Foto"
-                                                        class="img-fluid" style="width: 100px; height: 100px;">
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                        data-target="#detailModal{{ $dst->id }}">
+                                                        Detail
+                                                    </button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="detailModal{{ $dst->id }}"
+                                                        tabindex="-1" aria-labelledby="exampleModalLabel"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Detail
+                                                                        Destinasi</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <img src="{{ asset('foto_destinasi/' . $dst->foto) }}"
+                                                                        class="img-fluid" alt="Foto"
+                                                                        style="max-width: 100%; height: auto;">
+                                                                    <p>{{ $dst->deskripsi }}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                                 <td class="align-middle text-center">
                                                     <span>
@@ -117,8 +142,8 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label for="destinasi_awal" class="form-label">Destinasi Awal</label>
-                                        <input type="text" class="form-control" id="destinasi_awal" name="destinasi_awal"
-                                            required>
+                                        <input type="text" class="form-control" id="destinasi_awal"
+                                            name="destinasi_awal" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -177,6 +202,11 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="mb-3">
+                                <label for="deskripsi" class="form-label">Deskripsi</label>
+                                <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
+                            </div>
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -268,6 +298,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <textarea class="form-control" id="deskripsi" name="deskripsi" required>{{ $dst->deskripsi }}</textarea>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

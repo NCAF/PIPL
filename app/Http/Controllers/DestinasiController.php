@@ -26,6 +26,7 @@ class DestinasiController extends Controller
             'jumlah_kursi' => 'required|integer',
             'jumlah_bagasi' => 'required|integer',
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'deskripsi' => 'required|string'
         ]);
 
 
@@ -37,6 +38,7 @@ class DestinasiController extends Controller
         $destinasi->hari_berangkat = $request->hari_berangkat;
         $destinasi->jumlah_kursi = $request->jumlah_kursi;
         $destinasi->jumlah_bagasi = $request->jumlah_bagasi;
+        $destinasi->deskripsi = $request->deskripsi;
 
 
         if ($request->hasFile('foto')) {
@@ -68,6 +70,7 @@ class DestinasiController extends Controller
                 'jumlah_kursi' => 'required|integer',
                 'jumlah_bagasi' => 'required|integer',
                 'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'deskripsi' => 'required|string'
             ]);
 
             // Temukan destinasi berdasarkan ID
@@ -81,6 +84,7 @@ class DestinasiController extends Controller
             $destinasi->hari_berangkat = $request->hari_berangkat;
             $destinasi->jumlah_kursi = $request->jumlah_kursi;
             $destinasi->jumlah_bagasi = $request->jumlah_bagasi;
+            $destinasi->deskripsi = $request->deskripsi;
 
             // Jika ada file foto yang diunggah, proses dan simpan
             if ($request->hasFile('foto')) {

@@ -31,3 +31,7 @@ Route::get('/destinasi', [DestinasiController::class, 'index'])->name('destinasi
 Route::post('/destinasi/create', [DestinasiController::class, 'store'])->name('destinasi.store');
 Route::put('/destinasi/{id}', [DestinasiController::class, 'update'])->name('destinasi.update');
 Route::delete('/destinasi/{id}', [DestinasiController::class, 'destroy'])->name('destinasi.destroy');
+
+Route::get('/aa',function(){
+    return view('page.tambahDestinasi');
+});

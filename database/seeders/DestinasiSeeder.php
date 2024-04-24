@@ -15,6 +15,7 @@ class DestinasiSeeder extends Seeder
     {
         DB::table('destinasi')->insert([
             [
+                'user_id' => 1,
                 'destinasi_awal' => 'Jakarta',
                 'destinasi_akhir' => 'Bandung',
                 'jenis_kendaraan' => 'Bus',
@@ -28,6 +29,7 @@ class DestinasiSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
+                'user_id' => 1,
                 'destinasi_awal' => 'Surabaya',
                 'destinasi_akhir' => 'Malang',
                 'jenis_kendaraan' => 'Kereta Api',

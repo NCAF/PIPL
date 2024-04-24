@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Destinasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class DestinasiController extends Controller
@@ -11,12 +12,16 @@ class DestinasiController extends Controller
 
     public function index()
     {
-        $destinations = Destinasi::all();
+        $destinations = Destinasi::where('user_id', auth()->id())->get();
         return view('page.destinasi', compact('destinations'));
+    }
+    public function createindex()
+    {
+        $destinations = Destinasi::all();
+        return view('page.tambahDestinasi', compact('destinations'));
     }
     public function store(Request $request)
     {
-
         $request->validate([
             'destinasi_awal' => 'required|string|max:255',
             'destinasi_akhir' => 'required|string|max:255',
@@ -29,8 +34,8 @@ class DestinasiController extends Controller
             'deskripsi' => 'required|string'
         ]);
 
-
         $destinasi = new Destinasi();
+        $destinasi->user_id = Auth::id();
         $destinasi->destinasi_awal = $request->destinasi_awal;
         $destinasi->destinasi_akhir = $request->destinasi_akhir;
         $destinasi->jenis_kendaraan = $request->jenis_kendaraan;
@@ -40,16 +45,13 @@ class DestinasiController extends Controller
         $destinasi->jumlah_bagasi = $request->jumlah_bagasi;
         $destinasi->deskripsi = $request->deskripsi;
 
-
         if ($request->hasFile('foto')) {
             $fotoName = time() . '_' . $request->foto->getClientOriginalName();
             $request->foto->move(public_path('foto_destinasi'), $fotoName);
             $destinasi->foto = $fotoName;
         }
 
-
         $destinasi->save();
-
 
         return redirect()->route('destinasi.index')->with('notification', [
             'title' => 'Sukses!',
@@ -77,6 +79,7 @@ class DestinasiController extends Controller
             $destinasi = Destinasi::findOrFail($id);
 
             // Atur nilai atribut destinasi berdasarkan input
+            $destinasi->user_id = Auth::id();
             $destinasi->destinasi_awal = $request->destinasi_awal;
             $destinasi->destinasi_akhir = $request->destinasi_akhir;
             $destinasi->jenis_kendaraan = $request->jenis_kendaraan;

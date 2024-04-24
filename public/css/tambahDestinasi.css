@@ -52,17 +52,49 @@ body {
                             font-size: var(--font-size);
                         }
 
-                        input {
+                        input[type='text'] {
                             border: var(--line);
                             padding: 12px;
                             font-size: var(--font-size);
                             border-radius: var(--round-4);
-                            width: 94%;
+                            width: 95%;
                         }
 
                         input:focus {
                             outline: none;
-                            border: 2px solid var(--body);
+                            outline: 1px solid blue;
+                        }
+                    }
+                    .description{
+                        width: 100%;
+                        background-color: antiquewhite;
+                    }
+                }
+
+                .field2{
+                    display: flex;
+                    gap: var(--spacing-16);
+                    justify-content: space-between;
+
+                    .field-item {
+                        width: 100%;
+                        background-color: antiquewhite;
+
+                        p {
+                            font-size: var(--font-size);
+                        }
+
+                        input{
+                            border: var(--line);
+                            padding: 12px;
+                            font-size: var(--font-size);
+                            border-radius: var(--round-4);
+                            width: 90%;
+                        }
+
+                        input:focus {
+                            outline: none;
+                            outline: 1px solid blue;
                         }
                     }
                 }
@@ -70,7 +102,7 @@ body {
                 #file {
                     display: flex;
                     flex-direction: column;
-                    padding: var(--spacing-16);
+                    padding: var(--spacing-12);
                     width: fit-content;
                     justify-content: center;
                     text-align: center;
@@ -81,8 +113,10 @@ body {
                 #file::file-selector-button {
                     padding: 6px 12px;
                     border: var(--line);
+                    border-radius: var(--round-4);
                 }
             }
+
         }
     }
 }

@@ -36,6 +36,28 @@
             <section class="kendaraan">
                 <h2>Kendaraan</h2>
                 <hr>
+                <div class="field2">
+                    <div class="field-item">
+                        <p>Jenis Kendaraan</p>
+                        <input type="text" name="" id="">
+                    </div>
+                    <div class="field-item">
+                        <p>Nomor Plat</p>
+                        <input type="text" name="" id="">
+                    </div>
+                    <div class="field-item">
+                        <p>Jumlah Kursi</p>
+                        <input type="text" name="" id="">
+                    </div>
+                    <div class="field-item">
+                        <p>Jumlah Bagasi</p>
+                        <input type="text" name="" id="">
+                    </div>
+                </div>
+                <div class="description">
+                    <p>Deskripsi</p>
+                    <input type="text" name="" id="">
+                </div>
             </section>
         </main>
     </div>

@@ -32,6 +32,9 @@ Route::post('/destinasi/create', [DestinasiController::class, 'store'])->name('d
 Route::put('/destinasi/{id}', [DestinasiController::class, 'update'])->name('destinasi.update');
 Route::delete('/destinasi/{id}', [DestinasiController::class, 'destroy'])->name('destinasi.destroy');
 
-Route::get('/aa',function(){
-    return view('page.tambahDestinasi');
-});
+// Route::get('/aa',function(){
+//     return view('page.tambahDestinasi');
+// });
+
+Route::get('/aa', [DestinasiController::class, 'index'])->name('destinasi.index');
+Route::get('/aa', [DestinasiController::class, 'store'])->name('destinasi.index');

@@ -65,10 +65,7 @@ body {
                             outline: 1px solid blue;
                         }
                     }
-                    .description{
-                        width: 100%;
-                        background-color: antiquewhite;
-                    }
+
                 }
 
                 .field2{
@@ -78,7 +75,6 @@ body {
 
                     .field-item {
                         width: 100%;
-                        background-color: antiquewhite;
 
                         p {
                             font-size: var(--font-size);
@@ -114,6 +110,22 @@ body {
                     padding: 6px 12px;
                     border: var(--line);
                     border-radius: var(--round-4);
+                }
+
+                .description{
+                    width: 100%;
+
+                    input{
+                        width: 97%;
+                        border: var(--line);
+                        padding: 12px;
+                        font-size: var(--font-size);
+                        border-radius: var(--round-4);
+                    }
+                    input:focus {
+                        outline: none;
+                        outline: 1px solid blue;
+                    }
                 }
             }
 

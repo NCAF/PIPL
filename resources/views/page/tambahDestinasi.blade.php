@@ -14,29 +14,33 @@
         @include('components._header')
         <main>
             <h1>Tambah Destinasi</h1>
-            @foreach ($destinations as $no => $dst)
-            <form action="{{ route('destinasi.update', ['id' => $dst->id]) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('destinasi.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('PUT')
-
                 <section class="rute">
                     <h2>Rute</h2>
                     <hr>
                     <div class="field">
                         <div class="field-item">
                             <p>Destinasi Awal</p>
-                            <input type="text" name="" id="" value="{{ $dst->destinasi_awal }}">
+                            <input type="text" name="destinasi_awal" id="destinasi_awal"
+                                value="{{ old('destinasi_awal') }}" required>
                         </div>
                         <div class="field-item">
                             <p>Destinasi Akhir</p>
-                            <input type="text" name="" id="" value="{{ $dst->destinasi_akhir }}">
+                            <input type="text" name="destinasi_akhir" id="destinasi_akhir"
+                                value="{{ old('destinasi_akhir') }}" required>
                         </div>
+                    </div>
+                    <div class="field-item">
+                        <p>Hari Berangkat</p>
+                        <input type="date" name="hari_berangkat" id="destinasi_akhir"
+                            value="{{ old('hari_berangkat') }}" required>
                     </div>
                 </section>
                 <section class="foto">
                     <h2>Foto</h2>
                     <hr>
-                    <input type="file" name="" id="file">
+                    <input type="file" name="foto" id="foto" required>
                 </section>
                 <section class="kendaraan">
                     <h2>Kendaraan</h2>
@@ -44,30 +48,31 @@
                     <div class="field2">
                         <div class="field-item">
                             <p>Jenis Kendaraan</p>
-                            <input type="text" name="" id="" value="{{ $dst->jenis_kendaraan }}">
+                            <input type="text" name="jenis_kendaraan" id="jenis_kendaraan"
+                                value="{{ old('jenis_kendaraan') }}" required>
                         </div>
                         <div class="field-item">
                             <p>Nomor Plat</p>
-                            <input type="text" name="" id="" value="{{ $dst->no_plat }}">
+                            <input type="text" name="no_plat" id="no_plat" value="{{ old('no_plat') }}" required>
                         </div>
                         <div class="field-item">
                             <p>Jumlah Kursi</p>
-                            <input type="text" name="" id="" value="{{ $dst->jumlah_kursi }}">
+                            <input type="text" name="jumlah_kursi" id="jumlah_kursi"
+                                value="{{ old('jumlah_kursi') }}" required>
                         </div>
                         <div class="field-item">
                             <p>Jumlah Bagasi</p>
-                            <input type="text" name="" id="" value="{{ $dst->jumlah_bagasi }}">
+                            <input type="text" name="jumlah_bagasi" id="jumlah_bagasi"
+                                value="{{ old('jumlah_bagasi') }}" required>
                         </div>
                     </div>
                     <div class="description">
                         <p>Deskripsi</p>
-                        <textarea name="" id="" cols="30" rows="10">{{ $dst->deskripsi }}</textarea>
+                        <textarea name="deskripsi" id="deskripsi" cols="30" rows="10" required>{{ old('deskripsi') }}</textarea>
                     </div>
                 </section>
-                @endforeach
                 <button type="submit">submit</button>
             </form>
-
         </main>
     </div>
 

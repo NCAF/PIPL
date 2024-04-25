@@ -12,7 +12,7 @@ class DestinasiController extends Controller
 
     public function index()
     {
-        $destinations = Destinasi::where('user_id', auth()->id())->get();
+        $destinations = Destinasi::all();
         return view('page.destinasi', compact('destinations'));
     }
     public function createindex()
@@ -22,42 +22,47 @@ class DestinasiController extends Controller
     }
     public function store(Request $request)
     {
-        $request->validate([
-            'destinasi_awal' => 'required|string|max:255',
-            'destinasi_akhir' => 'required|string|max:255',
-            'jenis_kendaraan' => 'required|string|max:255',
-            'no_plat' => 'required|string|max:255',
-            'hari_berangkat' => 'required|date',
-            'jumlah_kursi' => 'required|integer',
-            'jumlah_bagasi' => 'required|integer',
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'deskripsi' => 'required|string'
-        ]);
+        try {
+            $request->validate([
+                'destinasi_awal' => 'required|string|max:255',
+                'destinasi_akhir' => 'required|string|max:255',
+                'jenis_kendaraan' => 'required|string|max:255',
+                'no_plat' => 'required|string|max:255',
+                'hari_berangkat' => 'required|date',
+                'jumlah_kursi' => 'required|integer',
+                'jumlah_bagasi' => 'required|integer',
+                'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'deskripsi' => 'required|string'
+            ]);
 
-        $destinasi = new Destinasi();
-        $destinasi->user_id = Auth::id();
-        $destinasi->destinasi_awal = $request->destinasi_awal;
-        $destinasi->destinasi_akhir = $request->destinasi_akhir;
-        $destinasi->jenis_kendaraan = $request->jenis_kendaraan;
-        $destinasi->no_plat = $request->no_plat;
-        $destinasi->hari_berangkat = $request->hari_berangkat;
-        $destinasi->jumlah_kursi = $request->jumlah_kursi;
-        $destinasi->jumlah_bagasi = $request->jumlah_bagasi;
-        $destinasi->deskripsi = $request->deskripsi;
+            $destinasi = new Destinasi();
+            $destinasi->user_id = Auth::id();
+            $destinasi->destinasi_awal = $request->destinasi_awal;
+            $destinasi->destinasi_akhir = $request->destinasi_akhir;
+            $destinasi->jenis_kendaraan = $request->jenis_kendaraan;
+            $destinasi->no_plat = $request->no_plat;
+            $destinasi->hari_berangkat = $request->hari_berangkat;
+            $destinasi->jumlah_kursi = $request->jumlah_kursi;
+            $destinasi->jumlah_bagasi = $request->jumlah_bagasi;
+            $destinasi->deskripsi = $request->deskripsi;
 
-        if ($request->hasFile('foto')) {
-            $fotoName = time() . '_' . $request->foto->getClientOriginalName();
-            $request->foto->move(public_path('foto_destinasi'), $fotoName);
-            $destinasi->foto = $fotoName;
+            if ($request->hasFile('foto')) {
+                $fotoName = time() . '_' . $request->foto->getClientOriginalName();
+                $request->foto->move(public_path('foto_destinasi'), $fotoName);
+                $destinasi->foto = $fotoName;
+            }
+
+            $destinasi->save();
+
+            return redirect()->route('destinasi.index')->with('notification', [
+                'title' => 'Sukses!',
+                'text' => 'Destinasi berhasil ditambahkan.',
+                'type' => 'success'
+            ]);
+        } catch (\Exception $e) {
+            dd($e->getMessage()); // Tambahkan baris ini untuk menampilkan pesan kesalahan dalam konsol
+            return back()->withInput()->withErrors(['error' => $e->getMessage()]);
         }
-
-        $destinasi->save();
-
-        return redirect()->route('destinasi.index')->with('notification', [
-            'title' => 'Sukses!',
-            'text' => 'Destinasi berhasil ditambahkan.',
-            'type' => 'success'
-        ]);
     }
     public function update(Request $request, $id)
     {

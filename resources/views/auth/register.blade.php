@@ -54,15 +54,17 @@
                     box-shadow: 0 7px 30px 0 rgba(0, 0, 0, 0.2);
 
 
-                    #back{
+                    #back {
                         width: fit-content;
                         padding: 4px;
                         border-radius: 10px;
                         align-items: center;
                     }
-                    #back:hover{
+
+                    #back:hover {
                         background-color: #e8ecef;
                     }
+
                     form {
                         width: auto;
 
@@ -106,12 +108,18 @@
             </a>
 
             <h1>Sign Up</h1>
-            <form>
+            <form class="needs-validation" novalidate>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="username" placeholder="Username">
+                    <input type="text" class="form-control" id="username" placeholder="Username" required>
+                    <div class="invalid-feedback">
+                        Username tidak boleh kosong!
+                    </div>
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <input type="password" class="form-control" id="password" placeholder="Password" required>
+                    <div class="invalid-feedback">
+                        Password tidak boleh kosong!
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary flex-grow-1">Submit</button>
             </form>
@@ -121,7 +129,27 @@
     </div>
 
 
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (() => {
+            'use strict'
 
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

@@ -78,7 +78,6 @@
                 <a href="#">Chat</a>
             </div>
         </div>
-        <hr>
         <div class="bottom text-end mt-3">
             <p class="text-secondary">&copy; Copyright 2024 Travesia</p>
         </div>

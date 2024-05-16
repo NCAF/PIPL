@@ -1,70 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>@yield('title')</title>
-    <!-- General CSS Files -->
-    <link rel="stylesheet" href="admin/assets/css/app.min.css">
-    <!-- Template CSS -->
-    <link rel="stylesheet" href="admin/assets/css/style.css">
-    <link rel="stylesheet" href="admin/assets/css/components.css">
-    <!-- Custom style CSS -->
-    <link rel="stylesheet" href="admin/assets/css/custom.css">
-    <link rel='shortcut icon' type='image/x-icon' href='foto/logo.png' />
-
-    <!--jquery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-    <!--chartjs-->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!--sweetalert-->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- Tambahkan link ke Axios -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body>
-    <!--*******************
-        Preloader start
-    ********************-->
-    <div id="preloader">
-        <div class="loader">
-            <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3"
-                    stroke-miterlimit="10" />
-            </svg>
-        </div>
-    </div>
-    <!--*******************
-        Preloader end
-    ********************-->
-    <div id="main-wrapper">
 
-        @include('components.header')
-        @include('components.sidebar')
-        @yield('content')
-    </div>
-
-    <!-- Footer content -->
+    @include('components.navbar')
+    @yield('main')
     @include('components.footer')
 
-    <!-- General JS Scripts -->
-    <script src="admin/assets/js/app.min.js"></script>
-    <!-- JS Libraies -->
-    <script src="admin/assets/bundles/apexcharts/apexcharts.min.js"></script>
-    <!-- Page Specific JS File -->
-    <script src="admin/assets/js/page/index.js"></script>
-    <!-- Template JS File -->
-    <script src="admin/assets/js/scripts.js"></script>
-    <!-- Custom JS File -->
-    <script src="admin/assets/js/custom.js"></script>
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>

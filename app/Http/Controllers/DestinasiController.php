@@ -12,7 +12,7 @@ class DestinasiController extends Controller
     public function index()
     {
         $destinations = Destinasi::all();
-        return view('page.destinasi', compact('destinations'));
+        return view('pages.dashboard', compact('destinations'));
     }
     public function store(Request $request)
     {

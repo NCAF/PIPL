@@ -17,7 +17,7 @@ use App\Http\Controllers\DestinasiController;
 
 
 // login route
-Route::get('/', [AuthController::class, 'loginForm'])->name('login');
+Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 
@@ -27,7 +27,8 @@ Route::post('/register', [AuthController::class, 'register'])->name('register.po
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //destinasi route
-Route::get('/destinasi', [DestinasiController::class, 'index'])->name('destinasi.index');
+Route::get('/', [DestinasiController::class, 'index'])->name('destinasi.index');
+// Route::get('/destinasi', [DestinasiController::class, 'index'])->name('destinasi.index');
 Route::post('/destinasi/create', [DestinasiController::class, 'store'])->name('destinasi.store');
 Route::put('/destinasi/{id}', [DestinasiController::class, 'update'])->name('destinasi.update');
 Route::delete('/destinasi/{id}', [DestinasiController::class, 'destroy'])->name('destinasi.destroy');

@@ -5,10 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Travesia</title>
-    <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
@@ -70,8 +66,6 @@
                         }
                     }
 
-
-
                     .btn-reg {
                         background-color: var(--accent);
                         color: var(--white);
@@ -81,18 +75,20 @@
                             outline: 2px solid #4BAFF6;
                         }
                     }
-                }
 
-                .profile {
-                    align-items: center;
-                    width: auto;
-                    font: var(--button);
-                    color: var(--black);
+                    .dropdown {
+                        align-items: center;
+                        width: auto;
+                        font: var(--button);
+                        color: var(--black);
 
-                    img {
-                        width: 30px;
+                        img {
+                            width: 30px;
+                        }
                     }
                 }
+
+
 
             }
         }
@@ -124,13 +120,13 @@
 
                 <!-- Dropdown -->
                 <div class="dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="btn dropdown-toggle border-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Destinasi
                     </a>
+
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Pesanan</a></li>
-                        <li><a class="dropdown-item" href="#">Tambah Destinasi</a></li>
-                        <li><a class="dropdown-item" href="#">Destinasi Saya</a></li>
+                        <li><a class="dropdown-item" href="{{ route('destinasi.add') }}">Tambah Destinasi</a></li>
+                        <li><a class="dropdown-item" href="{{ route('listDestinasi') }}">Daftar Destinasi</a></li>
                     </ul>
                 </div>
 
@@ -138,19 +134,45 @@
                 <a class="nav-link" href="#">Chat</a>
             </div>
 
-            <!-- button group -->
+            <!-- Button group -->
             <div class="button align-center d-flex align-item-center">
-                <a href="/sign-in" class="btn-login">Sign In</a>
-                <a href="/sign-up" class="btn-reg">Sign Up</a>
+                @guest
+                <a href="{{ route('login') }}" class="btn-login">Sign In</a>
+                <a href="{{ route('register') }}" class="btn-reg">Sign Up</a>
+                @endguest
+
+                @auth
+                <div class="dropdown">
+                    <a class="btn dropdown-toggle border-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/assets/image/profile-1.png" alt="Profile Image" style="witdh:30px;">
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Akun saya</a></li>
+                        <li><a class="dropdown-item" href="#">Tiket</a></li>
+                        <!-- <li><a class="dropdown-item" href="{{ route('logout') }}">Keluar</a></li> -->
+                        <li> <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </a>
+                            <form id="logout-form" action="
+                    {{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <!-- <a href="#" class="profile text-decoration-none d-flex gap-2">
+                    <img src="/assets/image/profile-1.png" alt="Profile Image">
+                </a> -->
+                @endauth
             </div>
 
-            <!-- profile -->
-            <!-- <a href="" class="profile text-decoration-none d-flex gap-2">
-                <img src="/assets/image/profile-1.png" alt="">
-                Gerrad Johson
-            </a> -->
         </div>
     </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

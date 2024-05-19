@@ -14,6 +14,17 @@ class DestinasiController extends Controller
         $destinations = Destinasi::all();
         return view('pages.dashboard', compact('destinations'));
     }
+    public function indexAdd()
+    {
+        $destinations = Destinasi::all();
+        return view('pages.destinasi', compact('destinations'));
+    }
+
+    public function listDestinasi()
+    {
+        $destinations = Destinasi::all();
+        return view('pages.listDestinasi', compact('destinations'));
+    }
     public function store(Request $request)
     {
 
@@ -146,6 +157,4 @@ class DestinasiController extends Controller
             ]);
         }
     }
-
-
 }

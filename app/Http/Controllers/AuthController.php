@@ -12,7 +12,7 @@ class AuthController extends Controller
     // login controller
     public function loginForm()
     {
-        return view('auth.login');
+        return view('auth._login');
     }
     public function login(Request $request)
     {
@@ -24,7 +24,7 @@ class AuthController extends Controller
 
             if (Auth::attempt($credentials)) {
                 // Login berhasil
-                return redirect('/destinasi');
+                return redirect('/');
             } else {
                 // Login gagal
                 return back()->withErrors([
@@ -40,7 +40,7 @@ class AuthController extends Controller
     //register controller
     public function registerForm()
     {
-        return view('auth.register');
+        return view('auth._register');
     }
     public function register(Request $request)
     {

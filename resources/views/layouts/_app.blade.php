@@ -43,14 +43,11 @@
         Preloader end
     ********************-->
     <div id="main-wrapper">
-
-        @include('components.header')
-        @include('components.sidebar')
         @yield('content')
     </div>
 
     <!-- Footer content -->
-    @include('components.footer')
+    @include('components._footer')
 
     <!-- General JS Scripts -->
     <script src="admin/assets/js/app.min.js"></script>

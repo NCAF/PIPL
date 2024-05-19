@@ -108,15 +108,22 @@
             </a>
 
             <h1>Sign Up</h1>
-            <form class="needs-validation" novalidate>
+            <form action="{{ route('register.post') }}" method="POST" class="needs-validation" novalidate id="regsiterForm">
+            @csrf
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="username" placeholder="Username" required>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Username" required>
                     <div class="invalid-feedback">
                         Username tidak boleh kosong!
                     </div>
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control" id="password" placeholder="Password" required>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                    <div class="invalid-feedback">
+                        Username tidak boleh kosong!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                     <div class="invalid-feedback">
                         Password tidak boleh kosong!
                     </div>

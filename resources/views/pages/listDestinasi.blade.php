@@ -10,33 +10,33 @@
 
 <body>
     <a href="{{ route('destinasi.index') }}">back</a>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col" class="text-center">asal</th>
-            <th scope="col" class="text-center">tujuan</th>
-            <th scope="col" class="text-center">action</th>
-        </tr>
-    </thead>
-    <tbody class="table-group-divider">
-        @foreach ($destinations as $no => $dst)
-        <tr>
-            <td class="text-center">{{ $dst->destinasi_awal }}</td>
-            <td class="text-center">{{ $dst->destinasi_akhir }}</td>
-            <td class="text-center">
-                <form action="{{ route('orders.store') }}" method="POST">
-                    @csrf
-                    <input type="hidden" name="id_user" value="{{ Auth::id() }}">
-                    <input type="hidden" name="id_destinasi" value="{{ $dst->id }}">
-                    <input type="hidden" name="date" value="{{ date('Y-m-d') }}"> <!-- Misalnya, tanggal hari ini -->
-                    <input type="hidden" name="time" value="{{ date('H:i:s') }}"> <!-- Misalnya, waktu saat ini -->
-                    <button type="submit" class="btn bg-primary text-light">pesan</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" class="text-center">asal</th>
+                <th scope="col" class="text-center">tujuan</th>
+                <th scope="col" class="text-center">action</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            @foreach ($destinations as $no => $dst)
+            <tr>
+                <td class="text-center">{{ $dst->destinasi_awal }}</td>
+                <td class="text-center">{{ $dst->destinasi_akhir }}</td>
+                <td class="text-center">
+                    <form action="{{ route('orders.store') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="id_user" value="{{ Auth::id() }}">
+                        <input type="hidden" name="id_destinasi" value="{{ $dst->id }}">
+                        <input type="hidden" name="date" value="{{ date('Y-m-d') }}"> <!-- Misalnya, tanggal hari ini -->
+                        <input type="hidden" name="time" value="{{ date('H:i:s') }}"> <!-- Misalnya, waktu saat ini -->
+                        <button type="submit" class="btn bg-primary text-light">pesan</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 
 
 

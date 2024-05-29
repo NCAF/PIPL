@@ -25,6 +25,29 @@ class DestinasiController extends Controller
         $destinations = Destinasi::all();
         return view('pages.listDestinasi', compact('destinations'));
     }
+    public function search(Request $request)
+    {
+        // Ambil data dari form
+        $origin = $request->input('origin');
+        $destination = $request->input('destination');
+        $date = $request->input('date');
+
+        // Lakukan pencarian di database
+        $destinations = Destinasi::where('destinasi_awal', $origin)
+                            ->where('destinasi_akhir', $destination)
+                            ->where('hari_berangkat', $date)
+                            ->get();
+
+        // Tampilkan hasil pencarian di view
+        return view('pages.search-results', [
+            'search' => [
+                'origin' => $origin,
+                'destination' => $destination,
+                'date' => $date,
+            ],
+            'destinations' => $destinations
+        ]);
+    }
     public function store(Request $request)
     {
 

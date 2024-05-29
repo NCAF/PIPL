@@ -36,6 +36,10 @@ Route::delete('/destinasi/{id}', [DestinasiController::class, 'destroy'])->name(
 
 
 //destinasi list
-Route::get('/list-destinasi',[DestinasiController::class, 'listDestinasi'])->name('listDestinasi');
+Route::get('/search-result', [DestinasiController::class, 'listDestinasi'])->name('listDestinasi');
 
 Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+
+Route::post('/search', [DestinasiController::class, 'search'])->name('search');
+
+

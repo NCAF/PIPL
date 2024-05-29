@@ -107,7 +107,8 @@
             </a>
 
             <h1>Sign In</h1>
-            <form class="needs-validation" novalidate>
+            <form action="{{route('login.post')}}" method="POST" class="needs-validation" novalidate>
+            @csrf
                 <div class="mb-3">
                     <input type="text" class="form-control" id="username" placeholder="Username" required>
                     <div class="invalid-feedback">

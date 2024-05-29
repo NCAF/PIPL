@@ -109,7 +109,7 @@
 
             <h1>Sign Up</h1>
             <form action="{{ route('register.post') }}" method="POST" class="needs-validation" novalidate id="regsiterForm">
-            @csrf
+                @csrf
                 <div class="mb-3">
                     <input type="text" class="form-control" id="name" name="name" placeholder="Username" required>
                     <div class="invalid-feedback">

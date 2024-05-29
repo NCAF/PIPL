@@ -110,13 +110,13 @@
             <form action="{{route('login.post')}}" method="POST" class="needs-validation" novalidate>
             @csrf
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="username" placeholder="Username" required>
+                    <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
                     <div class="invalid-feedback">
-                        Username tidak boleh kosong!
+                        Email tidak boleh kosong!
                     </div>
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control" id="password" placeholder="Password" required>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                     <div class="invalid-feedback">
                         Password tidak boleh kosong!
                     </div>

@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id(); // Primary Key
             $table->unsignedBigInteger('id_user'); // Foreign Key ke tabel users
             $table->unsignedBigInteger('id_destinasi'); // Foreign Key ke tabel destinasi
-            $table->date('date'); // Tanggal order
-            $table->time('time'); // Waktu order
             $table->timestamps(); // Kolom created_at dan updated_at
 
             // Definisi foreign key

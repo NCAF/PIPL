@@ -176,7 +176,7 @@
 <div class="hero d-flex justify-content-between ">
     <div class="text">
         <h1>Mari Menjelajahi Destinasi Baru Bersama Kami!</h1>
-        <form action="{{ route('search') }}" class="d-flex gap-4 mt-5" method="GET">
+        <form action="#" class="d-flex gap-4 mt-5" method="GET">
         @csrf
             <div class="formControl">
                 <svg width="24" height="24" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">

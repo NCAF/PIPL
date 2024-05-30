@@ -40,4 +40,8 @@ Route::get('/listDestinasi', [DestinasiController::class, 'listDestinasi'])->nam
 
 Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
 
+Route::get('/user/orders', [OrderController::class, 'userOrders'])->name('showOrders');
+Route::post('/order/{id}/upload-payment-proof', [OrderController::class, 'uploadPaymentProof'])->name('order.uploadPaymentProof');
+Route::get('/admin/orders', [OrderController::class, 'adminOrders'])->name('admin.orders');
+Route::put('/admin/order/{id}/change-status', [OrderController::class, 'changeOrderStatus'])->name('admin.order.changeStatus');
 

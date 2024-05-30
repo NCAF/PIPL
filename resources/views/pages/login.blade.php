@@ -108,7 +108,7 @@
 
             <h1>Sign In</h1>
             <form action="{{route('login.post')}}" method="POST" class="needs-validation" novalidate>
-            @csrf
+                @csrf
                 <div class="mb-3">
                     <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
                     <div class="invalid-feedback">
@@ -126,6 +126,15 @@
             <p class="text-secondary text-center">By logging in you agree to Travesia's <span class="text-primary">Terms & Conditions</span> and <span class="text-primary">Privacy Policy</span> Travesia.</p>
             <p class="text-center mt-5">Don't have an account? <a href="/sign-up" class="text-decoration-none text-center">Sign Up</a></p>
         </div>
+        @if ($errors->any())
+        <div class="alert alert-danger mt-3">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
     </div>
 
 

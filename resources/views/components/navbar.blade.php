@@ -116,7 +116,7 @@
 
             <!-- menu-item -->
             <div class="navbar-nav ">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="{{ route('destinasi.index') }}">Home</a>
 
                 <!-- Dropdown -->
                 <div class="dropdown">
@@ -130,7 +130,7 @@
                     </ul>
                 </div>
 
-                <a class="nav-link" href="#">Pesanan</a>
+                <a class="nav-link" href="{{route('showOrders')}}">Pesanan</a>
                 <a class="nav-link" href="#">Chat</a>
             </div>
 

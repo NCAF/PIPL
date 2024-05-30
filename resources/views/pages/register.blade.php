@@ -133,6 +133,15 @@
             <p class="text-secondary text-center">By registering you agree to Travesia's <span class="text-primary">Terms & Conditions</span> and <span class="text-primary">Privacy Policy</span> Travesia.</p>
             <p class="text-center mt-5">Already have an account? <a href="/sign-in" class="text-decoration-none text-center">Sign In Here</a></p>
         </div>
+        @if ($errors->any())
+        <div class="alert alert-danger mt-3">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
     </div>
 
 

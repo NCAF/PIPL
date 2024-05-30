@@ -9,6 +9,27 @@
 </head>
 
 <body>
+    @if (session('success'))
+    <div class="alert alert-success mt-3">
+        {{ session('success') }}
+    </div>
+    @endif
+
+    @if (session('error'))
+    <div class="alert alert-danger mt-3">
+        {{ session('error') }}
+    </div>
+    @endif
+
+    @if ($errors->any())
+    <div class="alert alert-danger mt-3">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <a href="{{ route('destinasi.index') }}">back</a>
     <table class="table">
         <thead>
@@ -28,14 +49,13 @@
                         @csrf
                         <input type="hidden" name="id_user" value="{{ Auth::id() }}">
                         <input type="hidden" name="id_destinasi" value="{{ $dst->id }}">
-                        <input type="hidden" name="date" value="{{ date('Y-m-d') }}"> <!-- Misalnya, tanggal hari ini -->
-                        <input type="hidden" name="time" value="{{ date('H:i:s') }}"> <!-- Misalnya, waktu saat ini -->
                         <button type="submit" class="btn bg-primary text-light">pesan</button>
                     </form>
                 </td>
             </tr>
             @endforeach
         </tbody>
+
     </table>
 
 

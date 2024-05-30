@@ -62,6 +62,7 @@
     }
 </style>
 <section class="search-result">
+
     <form action="" method="get" class="search bg-white pt-3 pb-3 ps-4 pe-4 rounded-4 border border-1 d-flex align-items-center justify-content-between mb-4  shadow-sm">
         @csrf
         <div class="d-flex align-items-center gap-1">
